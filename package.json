@@ -8,6 +8,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "modelok": "0.1.0"
+  },
   "devDependencies": {
     "typescript": "^5.2.2",
     "vite": "^5.1.4"

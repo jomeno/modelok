@@ -62,8 +62,13 @@ const validate = (model: any, errors: any = {}) => {
     }
 }
 
-export default validate
-
+/**
+ * Adds an error message to the errors collection
+ * @param field The name of the field on the model being validated
+ * @param errorMessage
+ * @param errors 
+ * @returns The updated errors object
+ */
 const addToErrors = (field:string, errorMessage: string, errors: any) => {
     
     let existingErrors = []
@@ -73,3 +78,5 @@ const addToErrors = (field:string, errorMessage: string, errors: any) => {
     errors[field] = [...existingErrors, errorMessage]
     return errors
 }
+
+export default validate

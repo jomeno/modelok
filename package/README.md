@@ -20,7 +20,9 @@ The primary goal is to be lightweight and super easy to use in JavaScript enviro
         surname: 'Doe', 
         country: '' 
     }
-    const results = validate(model).required('name').length('name', { minLength: 10 })
+    const results = validate(model).
+                        required('name').
+                        length('name', { minLength: 10 })
     ```
 
 4. Receive your model back with any validation errors.
@@ -30,9 +32,9 @@ The primary goal is to be lightweight and super easy to use in JavaScript enviro
         name: 'Jon', 
         surname: 'Doe', 
         country: '', 
-            errors: {
-                'name': ['Invalid length for name'],
-                'country: ['The country field is required']
-            } 
-        }
+        errors: {
+            'name': ['Invalid length for name'],
+            'country: ['The country field is required']
+        } 
+    }
     ```

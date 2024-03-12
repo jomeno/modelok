@@ -1,6 +1,7 @@
 import './style.css'
 import validate from './validate.ts'
 
+
 const model = {
   name: 'Jon',
   surname: 'Doe',
