@@ -1,0 +1,25 @@
+{
+  "name": "modelok",
+  "version": "0.1.3",
+  "description": "A simple JavaScript object validation library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jomeno/modelok.git"
+  },
+  "keywords": [
+    "form",
+    "object",
+    "validation"
+  ],
+  "author": "Jomeno Vona",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jomeno/modelok/issues"
+  },
+  "homepage": "https://github.com/jomeno/modelok#readme"
+}

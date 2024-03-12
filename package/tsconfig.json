@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outFile": "index.js",
+        "sourceMap": true
+    },
+    "include": ["../src/validate.ts"]
+}
