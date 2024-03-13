@@ -75,7 +75,8 @@ const addToErrors = (field:string, errorMessage: string, errors: any) => {
     if (Array.isArray(errors[field])) {
         existingErrors = errors[field]
     }
-    errors[field] = [...existingErrors, errorMessage]
+
+    errors = { ...errors, [field] : [...existingErrors, errorMessage]}
     return errors
 }
 

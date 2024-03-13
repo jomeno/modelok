@@ -38,3 +38,13 @@ The primary goal is to be lightweight and super easy to use in JavaScript enviro
         } 
     }
     ```
+
+# frequent questions
+
+    - Why are the errors placed in an array?
+
+    A single field may fail multiple validation rules therefore an array is used to collate error messages for each field.
+
+    - Where can I place a feature request?
+    
+    If you need a feature that is not yet available. Feel free to leave a comment on the [github repository](https://github.com/jomeno/modelok).
