@@ -5,7 +5,7 @@
         "removeComments": true,
         "preserveConstEnums": true,
         "outFile": "index.js",
-        "sourceMap": true
+        "sourceMap": false
     },
     "include": ["../src/validate.ts"]
 }

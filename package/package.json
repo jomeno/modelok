@@ -1,6 +1,6 @@
 {
   "name": "modelok",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "A simple JavaScript object validation library.",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,9 @@
   "keywords": [
     "form",
     "object",
-    "validation"
+    "model",
+    "validation",
+    "JSON"
   ],
   "author": "Jomeno Vona",
   "license": "ISC",

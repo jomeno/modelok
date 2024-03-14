@@ -10,5 +10,14 @@ describe('validate', () => {
         // assert
         expect(results.errors.surname[0]).toBe('The surname field is required')
     })
+    test('should be minLength', () => {
+        // arrange
+        const model = { firstName: 'Jon' }
+        // act
+        const results = validate(model).length('firstName', {minLength: 5}).done()
+        // assert
+        console.log('results', results)
+        expect(results.errors.firstName[0]).toBe('Invalid length for firstName')
+    })
 
 })
