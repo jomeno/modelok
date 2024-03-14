@@ -16,6 +16,14 @@ describe('validate', () => {
         // act
         const results = validate(model).length('firstName', {minLength: 5}).done()
         // assert
+        expect(results.errors.firstName[0]).toBe('Invalid length for firstName')
+    })
+    test('should not exceed maxLength', () => {
+        // arrange
+        const model = { firstName: 'Jonny' }
+        // act
+        const results = validate(model).length('firstName', {maxLength: 3 }).done()
+        // assert
         console.log('results', results)
         expect(results.errors.firstName[0]).toBe('Invalid length for firstName')
     })
