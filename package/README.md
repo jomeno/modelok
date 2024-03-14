@@ -1,8 +1,13 @@
 # modelok
 
-Pronounced 'model okay' is a simple JavaScript validation library.
+Pronounced 'model okay'. This is a simple JavaScript object validation library. 
 
-The primary goal is to be lightweight and super easy to use in JavaScript environments regardless of your framework (React, Vue, Angular etc).
+The primary goal is to be lightweight and super easy to use in JavaScript environments 
+regardless of your framework (React, Vue, Angular etc).
+
+Let's say Jon Doe is filling out some info on your app but has omitted his country 
+which is required. Thankfully you use modelok to ensure the data entered is valid 
+before posting it to your backend.
 
 # how to use
 
@@ -38,3 +43,15 @@ The primary goal is to be lightweight and super easy to use in JavaScript enviro
         } 
     }
     ```
+
+# frequent questions
+
+    - Why are the errors placed in an array?
+
+    A single field may fail multiple validation rules therefore 
+    an array is used to collate error messages for each field.
+
+    - Where can I place a feature request?
+    
+    If you need a feature that is not yet available. Feel free to 
+    create an issue on the github repo, github.com/jomeno/modelok.
