@@ -1,6 +1,6 @@
 # modelok
 
-Pronounced 'model okay'. This is a simple JavaScript object validation library. 
+Pronounced 'model okay' is a simple JavaScript object validation library. 
 
 The primary goal is to be lightweight and super easy to use in JavaScript environments 
 regardless of your framework (React, Vue, Angular etc).
