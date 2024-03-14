@@ -5,7 +5,7 @@ type TParams = {
 }
 
 const initLength = (params: TParams = {}) => {
-    let minLength = 1
+    let minLength = 0
     let maxLength = 50
 
     if(params.minLength){
@@ -17,7 +17,12 @@ const initLength = (params: TParams = {}) => {
 
     return { ...params, minLength, maxLength }
 }
-
+/**
+ * The entry point for model validation
+ * @param model The model to be validated
+ * @param errors A blank object for holding errors
+ * @returns 
+ */
 const validate = (model: any, errors: any = {}) => {
     
     return {
@@ -58,6 +63,9 @@ const validate = (model: any, errors: any = {}) => {
             }
 
             return validate(model, errors)
+        },
+        pattern: (field: string, params?: TParams) => {
+
         }
     }
 }
