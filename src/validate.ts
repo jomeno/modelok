@@ -4,6 +4,11 @@ type TParams = {
     maxLength?: number
 }
 
+type TPatternParams = {
+    message?: string,
+    pattern: string
+}
+
 const initLength = (params: TParams = {}) => {
     let minLength = 0
     let maxLength = 50
@@ -25,7 +30,7 @@ const initLength = (params: TParams = {}) => {
  */
 const validate = (model: any, errors: any = {}) => {
     
-    return {
+    const _validate = {
         done: ()=>{
             if(Object.keys(errors).length > 0){
                 model = {...model, errors: errors}
@@ -64,10 +69,31 @@ const validate = (model: any, errors: any = {}) => {
 
             return validate(model, errors)
         },
-        pattern: (field: string, params?: TParams) => {
+        email: (field: string, message: string) => {
+            const pattern = `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`
+            return _validate.pattern(field, { pattern, message })
+        },
+        pattern: (field: string, params: TPatternParams) => {
+            const value = model[field]
+            console.log('value', value, params)
+            const regExp = new RegExp(params.pattern)
+            const isValid = regExp.test(value)
+
+            if(isValid === false){
+                // Add error message to errors collection
+                let errorMessage = `No format match for ${field}`
+                if(params.message){
+                    errorMessage = params.message
+                }
+                errors = addToErrors(field, errorMessage, errors)
+            }
+
+            return validate(model, errors)
 
         }
     }
+
+    return _validate
 }
 
 /**

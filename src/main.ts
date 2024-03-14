@@ -5,15 +5,18 @@ import validate from './validate.ts'
 const model = {
   name: 'Jon',
   surname: 'Doe',
-  country: ''
+  country: '',
+  email: 'jon.doe@company.'
 }
 const results = validate(model).
       require('name').
       length('name', { minLength: 5 }).
       require('country').
+      email('email', 'Invalid email').
+      //pattern('email', { pattern : `^.{0,40}$` }).
       done()
 
-//console.log('validation results', results)
+console.log('validation results', results)
 
 let errorFields: string[] = []
 if(results.errors){
