@@ -66,7 +66,6 @@ const validate = (model: any, errors: any = {}) => {
                 }
                 errors = addToErrors(field, errorMessage, errors)
             }
-
             return validate(model, errors)
         },
         email: (field: string, message: string) => {
@@ -89,7 +88,6 @@ const validate = (model: any, errors: any = {}) => {
             }
 
             return validate(model, errors)
-
         }
     }
 
