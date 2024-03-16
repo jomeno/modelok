@@ -4,8 +4,10 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
+        // Generate d.ts files
+        "declaration": true,
         "outFile": "index.js",
         "sourceMap": false
     },
-    "include": ["../src/validate.ts"]
+    "include": ["../src/modelok.ts"]
 }

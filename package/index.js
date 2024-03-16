@@ -18,12 +18,12 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-define("validate", ["require", "exports"], function (require, exports) {
+define("modelok", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var initLength = function (params) {
         if (params === void 0) { params = {}; }
-        var minLength = 1;
+        var minLength = 0;
         var maxLength = 50;
         if (params.minLength) {
             minLength = params.minLength;
@@ -35,20 +35,19 @@ define("validate", ["require", "exports"], function (require, exports) {
     };
     var validate = function (model, errors) {
         if (errors === void 0) { errors = {}; }
-        return {
+        var _validate = {
             done: function () {
                 if (Object.keys(errors).length > 0) {
                     model = __assign(__assign({}, model), { errors: errors });
                 }
                 return model;
             },
-            require: function (field, params) {
-                if (params === void 0) { params = {}; }
+            require: function (field, message) {
                 var value = model[field];
                 if (!value) {
                     var errorMessage = "The ".concat(field, " field is required");
-                    if (params.message) {
-                        errorMessage = params.message;
+                    if (message) {
+                        errorMessage = message;
                     }
                     errors = addToErrors(field, errorMessage, errors);
                 }
@@ -68,17 +67,36 @@ define("validate", ["require", "exports"], function (require, exports) {
                     errors = addToErrors(field, errorMessage, errors);
                 }
                 return validate(model, errors);
+            },
+            email: function (field, message) {
+                var pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$";
+                return _validate.pattern(field, { pattern: pattern, message: message });
+            },
+            pattern: function (field, params) {
+                var value = model[field];
+                console.log('value', value, params);
+                var regExp = new RegExp(params.pattern);
+                var isValid = regExp.test(value);
+                if (isValid === false) {
+                    var errorMessage = "No format match for ".concat(field);
+                    if (params.message) {
+                        errorMessage = params.message;
+                    }
+                    errors = addToErrors(field, errorMessage, errors);
+                }
+                return validate(model, errors);
             }
         };
+        return _validate;
     };
+    exports.default = validate;
     var addToErrors = function (field, errorMessage, errors) {
+        var _a;
         var existingErrors = [];
         if (Array.isArray(errors[field])) {
             existingErrors = errors[field];
         }
-        errors[field] = __spreadArray(__spreadArray([], existingErrors, true), [errorMessage], false);
+        errors = __assign(__assign({}, errors), (_a = {}, _a[field] = __spreadArray(__spreadArray([], existingErrors, true), [errorMessage], false), _a));
         return errors;
     };
-    exports.default = validate;
 });
-//# sourceMappingURL=index.js.map

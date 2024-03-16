@@ -1,11 +1,11 @@
 {
   "name": "modelok",
-  "version": "0.1.18",
+  "version": "0.1.25",
   "description": "A simple JavaScript object validation library.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "tsc"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
