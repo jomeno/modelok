@@ -1,5 +1,6 @@
 import './style.css'
-import validate from './validate.ts'
+//import validate from './modelok.ts'
+import validate from 'modelok'
 
 
 const model = {

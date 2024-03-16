@@ -29,6 +29,7 @@ before posting it to your backend.
     const results = validate(model).
             required('firstName').
             length('firstName', { minLength: 10 }).
+            required('country').
             email('email', 'Please enter a valid email').
             done()
     ```
@@ -53,10 +54,17 @@ before posting it to your backend.
 
 # parameters
 
-| Validator | Parameter | Description | Type | Example
-| ---       | ---       | ---         | ---  | ---
-| .length()   | field     | The first parameter is `required` to be the property on your model holding the value to be validated. | string | `'firstName'` 
-|    | rules     | The second parameter is an `optional` object containing message, minLength and maxLength, all of which are also `optional`. | object | `{ message: 'Your first name must be between 3 and 100 characters long.', minLength: 3, maxLength: 100  }` 
+| Validator | Parameter | Description | Example
+| ---       | ---       | ---         | ---
+| .required()   | field     | The first parameter is `required` to be the property string on your model holding the value to be validated. | `'country'` 
+|    | message     | The second parameter is an `optional` message string. | `'Please enter your country.'` 
+| .length()   | field     | The first parameter is `required` to be the property string on your model holding the value to be validated. | `'firstName'` 
+|    | rules     | The second parameter is an `optional` object containing message, minLength and maxLength, all of which are also `optional`. | `{ message: 'Your first name must be between 3 and 100 characters long.', minLength: 3, maxLength: 100  }` 
+
+
+.
+.
+.
 
 # frequent questions
 

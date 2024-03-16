@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import validate from './validate'
+import validate from './modelok'
 
 describe('validate', () => {
     test('should require field', () => {

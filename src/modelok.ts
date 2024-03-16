@@ -1,10 +1,10 @@
-type TLengthParams = {
+export type TLengthParams = {
     message?: string,
     minLength?: number,
     maxLength?: number
 }
 
-type TPatternParams = {
+export type TPatternParams = {
     message?: string,
     pattern: string
 }
@@ -37,13 +37,13 @@ const validate = (model: any, errors: any = {}) => {
             }
             return model
         },
-        require: (field: string, params: TLengthParams = {}) => {
+        require: (field: string, message?: string) => {
             const value = model[field]
             if(!value){
                 // Add error message to errors collection
                 let errorMessage = `The ${field} field is required`
-                if (params.message) {
-                    errorMessage = params.message
+                if (message) {
+                    errorMessage = message
                 }
                 errors = addToErrors(field, errorMessage, errors)
             }
@@ -94,6 +94,8 @@ const validate = (model: any, errors: any = {}) => {
     return _validate
 }
 
+export default validate
+
 /**
  * Adds an error message to the errors collection
  * @param field The name of the field on the model being validated
@@ -111,5 +113,3 @@ const addToErrors = (field:string, errorMessage: string, errors: any) => {
     errors = { ...errors, [field] : [...existingErrors, errorMessage]}
     return errors
 }
-
-export default validate
