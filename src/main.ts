@@ -6,14 +6,13 @@ const model = {
   name: 'Jon',
   surname: 'Doe',
   country: '',
-  email: 'jon.doe@company.'
+  email: 'jon.doe@'
 }
 const results = validate(model).
       require('name').
       length('name', { minLength: 5 }).
       require('country').
-      email('email', 'Invalid email').
-      //pattern('email', { pattern : `^.{0,40}$` }).
+      email('email', 'Please enter a valid email').
       done()
 
 console.log('validation results', results)

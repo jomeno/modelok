@@ -1,4 +1,4 @@
-type TParams = {
+type TLengthParams = {
     message?: string,
     minLength?: number,
     maxLength?: number
@@ -9,7 +9,7 @@ type TPatternParams = {
     pattern: string
 }
 
-const initLength = (params: TParams = {}) => {
+const initLength = (params: TLengthParams = {}) => {
     let minLength = 0
     let maxLength = 50
 
@@ -37,7 +37,7 @@ const validate = (model: any, errors: any = {}) => {
             }
             return model
         },
-        require: (field: string, params: TParams = {}) => {
+        require: (field: string, params: TLengthParams = {}) => {
             const value = model[field]
             if(!value){
                 // Add error message to errors collection
@@ -50,7 +50,7 @@ const validate = (model: any, errors: any = {}) => {
 
             return validate(model, errors)
         },
-        length: (field: string, params?: TParams) => {
+        length: (field: string, params?: TLengthParams) => {
             // Initialize params to some defaults
             const newParams = initLength(params)
             const value = model[field]
